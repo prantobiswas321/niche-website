@@ -14,44 +14,44 @@ const Navigation = () => {
                     <div className="ms-auto fs-4 fw-bold navbar-nav">
                         <ul className="navbar-nav mb-2 mb-lg-0">
                             <li className="nav-item navLinks">
-                                <NavHashLink style={{ color: 'white' }} className="me-3 text-decoration-none" to="/home" activeClassName="selected"
+                                <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none" to="/home" activeClassName="selected"
                                     activeStyle={{ color: '#00FFFF' }} >Home</NavHashLink>
                             </li>
 
                             <li className="nav-item navLinks">
-                                <NavHashLink style={{ color: 'white' }} className="me-3 text-decoration-none" to="/explore" activeClassName="selected"
+                                <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none" to="/explore" activeClassName="selected"
                                     activeStyle={{ color: '#00FFFF' }} >Explore More</NavHashLink>
                             </li>
 
                             {/* {!user.email &&
                                 <li className="nav-item navLinks">
-                                    <NavHashLink style={{ color: 'white' }} className="me-3 text-decoration-none" to="/register" activeClassName="selected"
+                                    <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none" to="/register" activeClassName="selected"
                                         activeStyle={{ color: '#00FFFF' }}>Register</NavHashLink>
                                 </li>
                             } */}
 
                             {/* <li className="nav-item">
-                                <NavHashLink style={{ color: 'white' }} className="me-3 text-decoration-none navLinks" to="/login" activeClassName="selected"
+                                <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to="/login" activeClassName="selected"
                                     activeStyle={{ color: '#00FFFF' }} >Login</NavHashLink>
                             </li> */}
 
                             {/* {user.email &&
                                 <li className="nav-item">
-                                    <NavHashLink style={{ color: 'white' }} className="me-3 text-decoration-none navLinks" to="/myOrders" activeClassName="selected"
+                                    <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to="/myOrders" activeClassName="selected"
                                         activeStyle={{ color: '#00FFFF' }} >My orders</NavHashLink>
                                 </li>
                             } */}
 
                             {/* {user.email &&
                                 <li className="nav-item">
-                                    <NavHashLink style={{ color: 'white' }} className="me-3 text-decoration-none navLinks" to="/manageOrders" activeClassName="selected"
+                                    <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to="/manageOrders" activeClassName="selected"
                                         activeStyle={{ color: '#00FFFF' }} >Manage orders</NavHashLink>
                                 </li>
                             } */}
 
                             {/* {user.email &&
                                 <li className="nav-item">
-                                    <NavHashLink style={{ color: 'white' }} className="me-3 text-decoration-none navLinks" to="/addPlace" activeClassName="selected"
+                                    <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to="/addPlace" activeClassName="selected"
                                         activeStyle={{ color: '#00FFFF' }} >Add a place</NavHashLink>
                                 </li>
                             } */}
@@ -62,7 +62,7 @@ const Navigation = () => {
                                 //     <button className="btn btn-success" onClick={logOut} > <span className="fw-bold text-info">Log Out</span> {user.email}</button>
                                 //     :
                                 <li className="nav-item">
-                                    <NavHashLink style={{ color: 'white' }} className="me-3 text-decoration-none navLinks" to="/login" activeClassName="selected"
+                                    <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to="/login" activeClassName="selected"
                                         activeStyle={{ color: '#00FFFF' }} >Login</NavHashLink>
                                 </li>
                             }

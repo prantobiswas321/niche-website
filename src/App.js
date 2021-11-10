@@ -8,6 +8,7 @@ import Home from './pages/Home/Home/Home';
 import ExploreMore from './pages/ExploreMore/ExploreMore';
 import Login from './pages/Login/Login/Login';
 import Register from './pages/Register/Register';
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route path='/explore'>
             <ExploreMore></ExploreMore>
+          </Route>
+          <Route path='/placeOrder'>
+            <PlaceOrder></PlaceOrder>
           </Route>
           <Route path='/login'>
             <Login></Login>
