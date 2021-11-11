@@ -16,24 +16,16 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
 
 
-    const registerUser = (email, password, name, history) => {
+    const registerUser = (email, password) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError('');
-                const newUser = { email, displayName: name };
-                setUser(newUser);
+                // const newUser = { email, displayName: name };
+                // setUser(newUser);
                 // save user to database
                 // saveUser(email, name, 'POST');
                 // send name to firebase after creation
-                updateProfile(auth.currentUser, {
-                    displayName: name
-                }).then(() => {
-
-                }).catch((error) => {
-
-                });
-                history.replace('/');
             })
             .catch((error) => {
                 setAuthError(error.message);
@@ -45,8 +37,8 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const destination = location?.state?.from || '/';
-                history.replace(destination);
+                // const destination = location?.state?.from || '/';
+                // history.replace(destination);
                 setAuthError('');
             })
             .catch((error) => {
@@ -70,14 +62,15 @@ const useFirebase = () => {
             }).finally(() => setIsLoading(false));
     }
 
+    // observer for user state
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
-                getIdToken(user)
-                    .then(idToken => {
-                        // setToken(idToken);
-                    })
+                // getIdToken(user)
+                //     .then(idToken => {
+                //         // setToken(idToken);
+                //     })
             } else {
                 setUser({});
             }

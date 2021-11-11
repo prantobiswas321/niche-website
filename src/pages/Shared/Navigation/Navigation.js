@@ -1,8 +1,10 @@
 import React from 'react';
 import { NavHashLink } from 'react-router-hash-link';
+import useAuth from '../../../hooks/useAuth';
 import './Navigation.css';
 
 const Navigation = () => {
+    const { user, logOut } = useAuth();
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-color">
             <div className="container">
@@ -58,13 +60,13 @@ const Navigation = () => {
 
 
                             {
-                                // user.email ?
-                                //     <button className="btn btn-success" onClick={logOut} > <span className="fw-bold text-info">Log Out</span> {user.email}</button>
-                                //     :
-                                <li className="nav-item">
-                                    <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to="/login" activeClassName="selected"
-                                        activeStyle={{ color: '#00FFFF' }} >Login</NavHashLink>
-                                </li>
+                                user?.email ?
+                                    <button className="btn btn-success" onClick={logOut} > <span className="fw-bold text-info">Log Out</span> {user.email}</button>
+                                    :
+                                    <li className="nav-item">
+                                        <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to="/login" activeClassName="selected"
+                                            activeStyle={{ color: '#00FFFF' }} >Login</NavHashLink>
+                                    </li>
                             }
                         </ul>
 
