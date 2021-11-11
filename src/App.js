@@ -12,14 +12,13 @@ import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import Dashboard from './pages/Dashboard/Dashboard';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
-import Navigation from './pages/Shared/Navigation/Navigation';
+// import Navigation from './pages/Shared/Navigation/Navigation';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <Router>
-          <Navigation></Navigation>
           <Switch>
             <Route exact path='/'>
               <Home></Home>

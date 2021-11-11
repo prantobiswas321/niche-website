@@ -2,12 +2,12 @@ import React from 'react';
 import { NavHashLink } from 'react-router-hash-link';
 import useAuth from '../../../hooks/useAuth';
 
-const Navigation = () => {
+const DashboardNav = () => {
     const { user, logOut } = useAuth();
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-color">
             <div className="container">
-                <h2 className="fw-bold header-text-color"><span className='text-warning'>R</span>etro<span className='text-success'>C</span>ycle</h2>
+                <h2 className="fw-bold header-text-color">Dashboard</h2>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -55,6 +55,11 @@ const Navigation = () => {
                                     activeStyle={{ color: '#00FFFF' }} >Review</NavHashLink>
                             </li>
 
+                            <li className="nav-item">
+                                <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to="/payment" activeClassName="selected"
+                                    activeStyle={{ color: '#00FFFF' }} >Payment</NavHashLink>
+                            </li>
+
                             {
                                 // user?.email ?
                                 <button className="btn btn-success" onClick={logOut} > <span className="fw-bold text-info">Log Out</span> {user.displayName}</button>
@@ -74,4 +79,4 @@ const Navigation = () => {
     );
 };
 
-export default Navigation;
+export default DashboardNav;

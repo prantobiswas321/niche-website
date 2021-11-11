@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import login from '../../../images/login.png';
+import Navigation from '../../Shared/Navigation/Navigation';
 
 const Login = () => {
 
@@ -31,6 +32,7 @@ const Login = () => {
 
     return (
         <div>
+            <Navigation></Navigation>
             <div className="container">
                 <div className="row justify-content-md-center">
                     <div className="my-auto col-12 col-lg-6">

@@ -5,6 +5,7 @@ import Products from './Products/Products';
 const ExploreMore = () => {
     return (
         <div>
+            <Navigation></Navigation>
             <h2>More cycles</h2>
             <Products></Products>
         </div>
