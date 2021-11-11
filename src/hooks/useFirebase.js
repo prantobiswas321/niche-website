@@ -23,6 +23,8 @@ const useFirebase = () => {
                 setAuthError('');
                 const newUser = { email, displayName: name };
                 setUser(newUser);
+                // save user to database
+                saveUser(email, name, 'POST');
                 // send name to firebase after creation
                 updateProfile(auth.currentUser, {
                     displayName: name
@@ -30,8 +32,6 @@ const useFirebase = () => {
                 }).catch((error) => {
                 });
                 history.replace('/');
-                // save user to database
-                // saveUser(email, name, 'POST');
             })
             .catch((error) => {
                 setAuthError(error.message);
@@ -57,8 +57,8 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                // const user = result.user;
-                // saveUser(user.email, user.displayName, 'PUT')
+                const user = result.user;
+                saveUser(user.email, user.displayName, 'PUT');
                 setAuthError('');
 
                 const destination = location?.state?.from || '/';
@@ -103,17 +103,17 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     }
 
-    // const saveUser = (email, displayName, method) => {
-    //     const user = { email, displayName };
-    //     fetch('https://young-plains-96284.herokuapp.com/users', {
-    //         method: method,
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(user)
-    //     })
-    //         .then()
-    // }
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
 
     return {
         user,
