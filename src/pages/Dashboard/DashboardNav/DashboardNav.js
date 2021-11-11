@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavHashLink } from 'react-router-hash-link';
 import useAuth from '../../../hooks/useAuth';
-import './Navigation.css';
 
 const Navigation = () => {
     const { user, logOut } = useAuth();
@@ -21,8 +20,8 @@ const Navigation = () => {
                             </li>
 
                             <li className="nav-item navLinks">
-                                <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none" to="/explore" activeClassName="selected"
-                                    activeStyle={{ color: '#00FFFF' }} >Explore More</NavHashLink>
+                                <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none" to="/myOrders" activeClassName="selected"
+                                    activeStyle={{ color: '#00FFFF' }} >My orders</NavHashLink>
                             </li>
 
                             {/* {!user.email &&
@@ -51,23 +50,19 @@ const Navigation = () => {
                                 </li>
                             } */}
 
-                            {
-                                user.email &&
-                                <li className="nav-item">
-                                    <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to="/dashboard" activeClassName="selected"
-                                        activeStyle={{ color: '#00FFFF' }} >Dashboard</NavHashLink>
-                                </li>
-                            }
-
+                            <li className="nav-item">
+                                <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to="/review" activeClassName="selected"
+                                    activeStyle={{ color: '#00FFFF' }} >Review</NavHashLink>
+                            </li>
 
                             {
-                                user?.email ?
-                                    <button className="btn btn-success" onClick={logOut} > <span className="fw-bold text-info">Log Out</span> {user.displayName}</button>
-                                    :
-                                    <li className="nav-item">
-                                        <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to="/login" activeClassName="selected"
-                                            activeStyle={{ color: '#00FFFF' }} >Login</NavHashLink>
-                                    </li>
+                                // user?.email ?
+                                <button className="btn btn-success" onClick={logOut} > <span className="fw-bold text-info">Log Out</span> {user.displayName}</button>
+                                // :
+                                // <li className="nav-item">
+                                //     <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to="/login" activeClassName="selected"
+                                //         activeStyle={{ color: '#00FFFF' }} >Login</NavHashLink>
+                                // </li>
                             }
                         </ul>
 

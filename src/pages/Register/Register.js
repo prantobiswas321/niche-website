@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import login from '../../images/login.png';
-import Navigation from '../Shared/Navigation/Navigation';
 
 const Register = () => {
 
@@ -31,7 +30,6 @@ const Register = () => {
 
     return (
         <div>
-            <Navigation></Navigation>
             <div className="container">
                 <div className="row justify-content-md-center">
                     <div className="my-auto col-12 col-lg-6">
@@ -62,9 +60,7 @@ const Register = () => {
                                         <input type="password" className="form-control" name="password1" onBlur={handleOnBlur} required />
                                     </div>
                                 </div>
-                                <div className="ms-2 row mb-3">
-                                    {/* {error} */}
-                                </div>
+
                                 <input type="submit" value="Register" className="bg-success px-3 py-2 rounded-3 text-white" />
                             </form>
                         }
