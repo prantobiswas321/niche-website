@@ -16,16 +16,22 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
 
 
-    const registerUser = (email, password) => {
+    const registerUser = (email, password, name, history) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError('');
-                // const newUser = { email, displayName: name };
-                // setUser(newUser);
+                const newUser = { email, displayName: name };
+                setUser(newUser);
+                // send name to firebase after creation
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
+                }).catch((error) => {
+                });
+                history.replace('/');
                 // save user to database
                 // saveUser(email, name, 'POST');
-                // send name to firebase after creation
             })
             .catch((error) => {
                 setAuthError(error.message);
@@ -37,8 +43,8 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // const destination = location?.state?.from || '/';
-                // history.replace(destination);
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
                 setAuthError('');
             })
             .catch((error) => {
@@ -55,8 +61,8 @@ const useFirebase = () => {
                 // saveUser(user.email, user.displayName, 'PUT')
                 setAuthError('');
 
-                // const destination = location?.state?.from || '/';
-                // history.replace(destination);
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
             }).catch((error) => {
                 setAuthError(error.message);
             }).finally(() => setIsLoading(false));

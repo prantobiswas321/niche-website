@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import login from '../../../images/login.png';
 import Navigation from '../../Shared/Navigation/Navigation';
 
 const Login = () => {
 
-    const { user, loginUser, isLoading, authError } = useAuth();
+    const { user, loginUser, singInWithGoogle, isLoading, authError } = useAuth();
+
+    const location = useLocation();
+    const history = useHistory();
 
     const [loginData, setLoginData] = useState({});
 
@@ -16,12 +19,15 @@ const Login = () => {
         const newLoginData = { ...loginData };
         newLoginData[field] = value;
         setLoginData(newLoginData);
-        console.log(loginData);
     }
 
     const handleLoginSubmit = e => {
-        loginUser(loginData.email, loginData.password);
+        loginUser(loginData.email, loginData.password, location, history);
         e.preventDefault();
+    }
+
+    const handleGoogleSignIn = () => {
+        singInWithGoogle(location, history);
     }
 
     return (
@@ -35,18 +41,16 @@ const Login = () => {
                             <div className="row mb-3">
                                 <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email :</label>
                                 <div className="col-sm-10">
-                                    <input type="email" className="form-control" name="email" onChange={handleOnChange} required />
+                                    <input type="email" className="form-control" name="email" onBlur={handleOnChange} required />
                                 </div>
                             </div>
                             <div className="row mb-3">
                                 <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password :</label>
                                 <div className="col-sm-10">
-                                    <input type="password" className="form-control" name="password" onChange={handleOnChange} required />
+                                    <input type="password" className="form-control" name="password" onBlur={handleOnChange} required />
                                 </div>
                             </div>
-                            <div className="ms-2 row mb-3">
-                                {/* {error} */}
-                            </div>
+
                             <input type="submit" value="Login" className="bg-success px-3 py-2 rounded-3 text-white" />
                         </form>
 
@@ -59,19 +63,19 @@ const Login = () => {
                         }
 
                         {
-                            user?.email && <div class="alert alert-success mt-3" role="alert">
+                            user?.email && <div className="alert alert-success mt-3" role="alert">
                                 Login Successful!
                             </div>
                         }
 
                         {
-                            authError && <div class="alert alert-danger mt-3" role="alert">
+                            authError && <div className="alert alert-danger mt-3" role="alert">
                                 {authError}
                             </div>
                         }
                         <h1 className="my-3 textColor fw-bold">or,</h1>
 
-                        <button className="btn btn-danger" >Sign In With Google</button>
+                        <button onClick={handleGoogleSignIn} className="btn btn-danger" >Sign In With Google</button>
 
                         <p className="pt-3 text-dark fw-bold">New to RetroCycle!! <Link to="/register">Create an account</Link></p>
                     </div>

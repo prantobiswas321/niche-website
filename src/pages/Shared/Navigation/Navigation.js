@@ -51,17 +51,17 @@ const Navigation = () => {
                                 </li>
                             } */}
 
-                            {/* {user.email &&
+                            {
                                 <li className="nav-item">
-                                    <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to="/addPlace" activeClassName="selected"
-                                        activeStyle={{ color: '#00FFFF' }} >Add a place</NavHashLink>
+                                    <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to="/dashboard" activeClassName="selected"
+                                        activeStyle={{ color: '#00FFFF' }} >Dashboard</NavHashLink>
                                 </li>
-                            } */}
+                            }
 
 
                             {
                                 user?.email ?
-                                    <button className="btn btn-success" onClick={logOut} > <span className="fw-bold text-info">Log Out</span> {user.email}</button>
+                                    <button className="btn btn-success" onClick={logOut} > <span className="fw-bold text-info">Log Out</span> {user.displayName}</button>
                                     :
                                     <li className="nav-item">
                                         <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to="/login" activeClassName="selected"

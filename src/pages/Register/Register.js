@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import login from '../../images/login.png';
 import Navigation from '../Shared/Navigation/Navigation';
@@ -8,15 +8,16 @@ const Register = () => {
 
     const { user, registerUser, isLoading, authError } = useAuth();
 
+    const history = useHistory();
+
     const [loginData, setLoginData] = useState({});
 
-    const handleOnChange = e => {
+    const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
         const newLoginData = { ...loginData };
         newLoginData[field] = value;
         setLoginData(newLoginData);
-        console.log(loginData);
     }
 
     const handleLoginSubmit = e => {
@@ -24,7 +25,7 @@ const Register = () => {
             alert('Your password did not match');
             return
         }
-        registerUser(loginData.email, loginData.password);
+        registerUser(loginData.email, loginData.password, loginData.name, history);
         e.preventDefault();
     }
 
@@ -37,28 +38,28 @@ const Register = () => {
                         <h2>Register Your Account!!!</h2>
                         {
                             !isLoading && <form onSubmit={handleLoginSubmit} className='mt-3'>
-                                {/* <div className="row mb-3">
-                                <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Name :</label>
-                                <div className="col-sm-10">
-                                    <input type="name" className="form-control" name="name" onChange={handleOnChange} required />
+                                <div className="row mb-3">
+                                    <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Name :</label>
+                                    <div className="col-sm-10">
+                                        <input type="text" className="form-control" name="name" onBlur={handleOnBlur} required />
+                                    </div>
                                 </div>
-                            </div> */}
                                 <div className="row mb-3">
                                     <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email :</label>
                                     <div className="col-sm-10">
-                                        <input type="email" className="form-control" name="email" onChange={handleOnChange} required />
+                                        <input type="email" className="form-control" name="email" onBlur={handleOnBlur} required />
                                     </div>
                                 </div>
                                 <div className="row mb-3">
                                     <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password :</label>
                                     <div className="col-sm-10">
-                                        <input type="password" className="form-control" name="password" onChange={handleOnChange} required />
+                                        <input type="password" className="form-control" name="password" onBlur={handleOnBlur} required />
                                     </div>
                                 </div>
                                 <div className="row mb-3">
                                     <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Re-type Password :</label>
                                     <div className="col-sm-10">
-                                        <input type="password" className="form-control" name="password1" onChange={handleOnChange} required />
+                                        <input type="password" className="form-control" name="password1" onBlur={handleOnBlur} required />
                                     </div>
                                 </div>
                                 <div className="ms-2 row mb-3">
@@ -77,20 +78,20 @@ const Register = () => {
                         }
 
                         {
-                            user?.email && <div class="alert alert-success mt-3" role="alert">
+                            user?.email && <div className="alert alert-success mt-3" role="alert">
                                 Successfully Registered!
                             </div>
                         }
 
                         {
-                            authError && <div class="alert alert-danger mt-3" role="alert">
+                            authError && <div className="alert alert-danger mt-3" role="alert">
                                 {authError}
                             </div>
                         }
 
-                        <h1 className="my-3 textColor fw-bold">or,</h1>
+                        {/* <h1 className="my-3 textColor fw-bold">or,</h1>
 
-                        <button className="btn btn-danger" >Sign In With Google</button>
+                        <button className="btn btn-danger" >Sign In With Google</button> */}
 
                         <p className="pt-3 text-dark fw-bold">If you already have An Account? <Link to="/login">Login</Link></p>
                     </div>
