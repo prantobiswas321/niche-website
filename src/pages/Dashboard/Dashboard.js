@@ -18,7 +18,7 @@ import ManageProducts from './ManageProducts/ManageProducts';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
-    const { user, logOut } = useAuth();
+    const { user, admin, logOut } = useAuth();
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-color">
@@ -81,25 +81,27 @@ const Dashboard = () => {
                                         activeStyle={{ color: '#00FFFF' }} >Payment</NavHashLink>
                                 </li>
 
-                                <li className="nav-item">
-                                    <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to={`${url}/makeAdmin`} activeClassName="selected"
-                                        activeStyle={{ color: '#00FFFF' }} >Make Admin</NavHashLink>
-                                </li>
+                                {
+                                    admin && <li className="nav-item">
+                                        <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to={`${url}/makeAdmin`} activeClassName="selected"
+                                            activeStyle={{ color: '#00FFFF' }} >Make Admin</NavHashLink>
+                                    </li>
+                                }
 
-                                <li className="nav-item">
+                                {admin && <li className="nav-item">
                                     <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to={`${url}/manageOrders`} activeClassName="selected"
                                         activeStyle={{ color: '#00FFFF' }} >Manage Orders</NavHashLink>
-                                </li>
+                                </li>}
 
-                                <li className="nav-item">
+                                {admin && <li className="nav-item">
                                     <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to={`${url}/addProduct`} activeClassName="selected"
                                         activeStyle={{ color: '#00FFFF' }} >Add product</NavHashLink>
-                                </li>
+                                </li>}
 
-                                <li className="nav-item">
+                                {admin && <li className="nav-item">
                                     <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to={`${url}/manageProducts`} activeClassName="selected"
                                         activeStyle={{ color: '#00FFFF' }} >Manage Products</NavHashLink>
-                                </li>
+                                </li>}
 
                                 {
                                     // user?.email ?
