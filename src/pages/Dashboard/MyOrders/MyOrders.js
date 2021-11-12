@@ -40,12 +40,12 @@ const MyOrders = () => {
                                 <div className="card bg-secondary text-white">
 
                                     <div className="card-body">
-                                        <h2 className="card-title mb-2">Product Name: {order?.productName}</h2>
+                                        <h2 className="card-title mb-2">{order?.productName}</h2>
                                         <p className="card-text">Ordered by: {order?.email}</p>
                                         <p className="card-text">Cost: ${order?.price}</p>
                                         <h6 className="card-text">Order Status: <b>{order?.status}</b></h6>
 
-                                        <button className='btn btn-success px-3 mt-2 mb-4 ' onClick={() => deleteOrder(order?._id)}>Delete</button>
+                                        <button className='btn btn-success px-3 mt-2 mb-4 ' onClick={() => deleteOrder(order?._id)}>Delete Item</button>
                                     </div>
                                 </div>
                             </div>
