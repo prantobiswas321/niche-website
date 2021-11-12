@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react';
 const ManageAllOrders = () => {
 
     const [allOrders, setAllOrders] = useState([]);
+    const [updateSuccess, setUpdateSuccess] = useState(false);
 
     useEffect(() => {
         fetch('http://localhost:5000/userOrder')
             .then(res => res.json())
             .then(data => setAllOrders(data))
-    }, [])
+    }, [updateSuccess])
 
     const deleteOrder = id => {
         const result = window.confirm('Are You Sure You Want To Delete?');
@@ -45,6 +46,7 @@ const ManageAllOrders = () => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
                     alert('Order status updated successfully');
+                    setUpdateSuccess(true);
                 }
             })
     }
