@@ -14,6 +14,7 @@ import MakeAdmin from './MakeAdmin/MakeAdmin';
 import ManageAllOrders from './ManageAllOrders/ManageAllOrders';
 import AddProduct from './AddProduct/AddProduct';
 import ManageProducts from './ManageProducts/ManageProducts';
+import AdminRoute from '../Login/AdminRoute/AdminRoute';
 
 
 const Dashboard = () => {
@@ -133,18 +134,18 @@ const Dashboard = () => {
                 <Route path={`${path}/review`}>
                     <Review></Review>
                 </Route>
-                <Route path={`${path}/makeAdmin`}>
+                <AdminRoute path={`${path}/makeAdmin`}>
                     <MakeAdmin></MakeAdmin>
-                </Route>
-                <Route path={`${path}/manageOrders`}>
+                </AdminRoute>
+                <AdminRoute path={`${path}/manageOrders`}>
                     <ManageAllOrders></ManageAllOrders>
-                </Route>
-                <Route path={`${path}/addProduct`}>
+                </AdminRoute>
+                <AdminRoute path={`${path}/addProduct`}>
                     <AddProduct></AddProduct>
-                </Route>
-                <Route path={`${path}/manageProducts`}>
+                </AdminRoute>
+                <AdminRoute path={`${path}/manageProducts`}>
                     <ManageProducts></ManageProducts>
-                </Route>
+                </AdminRoute>
             </Switch>
 
         </div>

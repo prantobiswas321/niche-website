@@ -85,13 +85,6 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, [auth])
 
-    // useEffect(() => {
-    //     fetch(`https://young-plains-96284.herokuapp.com/users/${user.email}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setAdmin(data.admin);
-    //         })
-    // }, [user.email])
     useEffect(() => {
         fetch(`http://localhost:5000/users/${user.email}`)
             .then(res => res.json())
