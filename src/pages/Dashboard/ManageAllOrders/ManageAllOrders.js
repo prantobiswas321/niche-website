@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 const ManageAllOrders = () => {
+
     const [allOrders, setAllOrders] = useState([]);
+
     useEffect(() => {
         fetch('http://localhost:5000/userOrder')
             .then(res => res.json())
@@ -24,14 +26,32 @@ const ManageAllOrders = () => {
                     setAllOrders(restOrder);
                 });
         }
-        else {
-            return;
-        }
+    }
+
+
+    const updateStatus = (id) => {
+
+        const orderId = { _id: id };
+
+        fetch('http://localhost:5000/updateOrderStatus', {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(orderId)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    alert('Order status updated successfully');
+                }
+            })
     }
 
     return (
         <div className='text-center container mb-5'>
-            <h1 className='mt-4'>Manage all orders</h1>
+            <h1 className='mt-4'>Manage all orders: {allOrders?.length}</h1>
             <div className='container row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-2 row-cols-1 mt-5'>
                 {
                     allOrders.map(order =>
@@ -43,7 +63,7 @@ const ManageAllOrders = () => {
                                     <p className="card-text">Ordered by: {order?.email}</p>
                                     <p className="card-text">Price: ${order?.price}</p>
                                     <h6 className="card-text">Order Status: <b>{order?.status}</b></h6>
-                                    <button className='btn btn-success px-3 mt-2 mb-4 me-3'>Update Status</button>
+                                    <button onClick={() => updateStatus(order?._id)} className='btn btn-success px-3 mt-2 mb-4 me-3'>Update Status</button>
                                     {/* <button className='btn btn-danger px-3 mt-4 ' onClick={() => deleteOrder(order?._id)}>Delete</button> */}
                                     <button onClick={() => deleteOrder(order?._id)} className='btn btn-success px-3 mt-2 mb-4'>Delete Item</button>
                                 </div>

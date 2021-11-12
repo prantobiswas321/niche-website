@@ -8,7 +8,6 @@ const AddProduct = () => {
     const [addSuccess, setAddSuccess] = useState(false);
 
     const onSubmit = data => {
-        console.log(data);
 
         axios.post('http://localhost:5000/products', data)
             .then(res => {
