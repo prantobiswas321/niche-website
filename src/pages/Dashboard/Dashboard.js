@@ -1,11 +1,8 @@
 import React from 'react';
 import { NavHashLink } from 'react-router-hash-link';
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
-    Link,
-    useParams,
     useRouteMatch
 } from "react-router-dom";
 import useAuth from '../../hooks/useAuth';
@@ -14,7 +11,9 @@ import Payment from './Payment/Payment';
 import MyOrders from './MyOrders/MyOrders';
 import Review from './Review/Review';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
-// import { Nav } from 'react-bootstrap';
+import ManageAllOrders from './ManageAllOrders/ManageAllOrders';
+import AddProduct from './AddProduct/AddProduct';
+import ManageProducts from './ManageProducts/ManageProducts';
 
 
 const Dashboard = () => {
@@ -29,7 +28,7 @@ const Dashboard = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div className="ms-auto fs-4 fw-bold navbar-nav">
+                        <div className="ms-auto fs-6 fw-bold navbar-nav">
                             <ul className="navbar-nav mb-2 mb-lg-0">
                                 <li className="nav-item navLinks">
                                     <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none" to="/home" activeClassName="selected"
@@ -87,6 +86,21 @@ const Dashboard = () => {
                                         activeStyle={{ color: '#00FFFF' }} >Make Admin</NavHashLink>
                                 </li>
 
+                                <li className="nav-item">
+                                    <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to={`${url}/manageOrders`} activeClassName="selected"
+                                        activeStyle={{ color: '#00FFFF' }} >Manage Orders</NavHashLink>
+                                </li>
+
+                                <li className="nav-item">
+                                    <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to={`${url}/addProduct`} activeClassName="selected"
+                                        activeStyle={{ color: '#00FFFF' }} >Add product</NavHashLink>
+                                </li>
+
+                                <li className="nav-item">
+                                    <NavHashLink style={{ color: 'yellow' }} className="me-3 text-decoration-none navLinks" to={`${url}/manageProducts`} activeClassName="selected"
+                                        activeStyle={{ color: '#00FFFF' }} >Manage Products</NavHashLink>
+                                </li>
+
                                 {
                                     // user?.email ?
                                     <button className="btn btn-success" onClick={logOut} > <span className="fw-bold text-info">Log Out</span> {user.displayName}</button>
@@ -104,8 +118,6 @@ const Dashboard = () => {
                 </div>
             </nav>
 
-            <h2>This is Dashboard</h2>
-
             <Switch>
                 <Route exact path={path}>
                     <DashboardHome></DashboardHome>
@@ -121,6 +133,15 @@ const Dashboard = () => {
                 </Route>
                 <Route path={`${path}/makeAdmin`}>
                     <MakeAdmin></MakeAdmin>
+                </Route>
+                <Route path={`${path}/manageOrders`}>
+                    <ManageAllOrders></ManageAllOrders>
+                </Route>
+                <Route path={`${path}/addProduct`}>
+                    <AddProduct></AddProduct>
+                </Route>
+                <Route path={`${path}/manageProducts`}>
+                    <ManageProducts></ManageProducts>
                 </Route>
             </Switch>
 

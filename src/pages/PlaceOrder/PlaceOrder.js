@@ -33,6 +33,7 @@ const PlaceOrder = () => {
             email: user.email,
             productName: order.name,
             price: order.price,
+            status: "pending",
             ...placeOrder
         };
         // send to server
