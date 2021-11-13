@@ -31,13 +31,13 @@ const ManageProducts = () => {
 
     return (
         <div>
-            <h2 className='mt-3'>Total Products: {products.length}</h2>
+            <h2 className='mt-5 fw-bold'>Total Products: {products.length}</h2>
             <div className='text-center container mb-5'>
                 <div className='container row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-2 row-cols-1 mt-5'>
                     {
                         products.map(product =>
                             <div key={product._id} className="col">
-                                <div className="card bg-secondary text-white">
+                                <div className="card bg-back text-white">
 
                                     <div className="card-body">
                                         <h5 className="card-title mb-2">Product Name: {product?.name}</h5>

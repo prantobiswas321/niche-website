@@ -31,13 +31,13 @@ const MyOrders = () => {
 
     return (
         <div>
-            <h2 className='mt-3'>My orders: {orders.length}</h2>
+            <h2 className='mt-5 fw-bold'>My orders: {orders.length}</h2>
             <div className='text-center container mb-5'>
                 <div className='container row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-2 row-cols-1 mt-5'>
                     {
                         orders.map(order =>
                             <div key={order._id} className="col">
-                                <div className="card bg-secondary text-white">
+                                <div className="card bg-back text-white">
 
                                     <div className="card-body">
                                         <h2 className="card-title mb-2">{order?.productName}</h2>

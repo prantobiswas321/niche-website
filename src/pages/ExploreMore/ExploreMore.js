@@ -6,7 +6,7 @@ const ExploreMore = () => {
     return (
         <div>
             <Navigation></Navigation>
-            <h2>More cycles</h2>
+            <h2 className="fw-bold my-4">More cycles</h2>
             <Products></Products>
         </div>
     );

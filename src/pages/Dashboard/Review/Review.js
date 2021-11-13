@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
-import review from '../../../images/review.png';
+import review from '../../../images/review1.png';
 import './Review.css';
 
 const Review = () => {
@@ -33,8 +33,8 @@ const Review = () => {
 
     return (
         <div>
-            <h2>Give Your Feedback</h2>
-            <div className="container mt-5">
+            <h2 className="my-4 fw-bold">Give Your Feedback</h2>
+            <div className="container mt-5 mb-4 pb-4">
                 <div className="row g-3 justify-content-md-center">
                     <div className="col-12 col-lg-5">
                         <img className="img-fluid" src={review} alt="" />
@@ -44,14 +44,14 @@ const Review = () => {
                             <div className="row mb-3">
                                 <label className="col-sm-2 col-form-label">Name :</label>
                                 <div className="col-sm-10">
-                                    <input type="text" className="form-control" defaultValue={user?.displayName} name="name" required disabled />
+                                    <input type="text" className="form-control" defaultValue={user?.displayName || ''} name="name" required disabled />
                                 </div>
                             </div>
                             <div className="row mb-3">
                                 <label className="col-sm-2 col-form-label">Email :</label>
                                 <div className="col-sm-10">
                                     <input type="email" className="form-control" name="email"
-                                        defaultValue={user?.email} required disabled />
+                                        defaultValue={user?.email || ''} required disabled />
                                 </div>
                             </div>
 

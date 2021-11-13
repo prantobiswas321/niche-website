@@ -53,12 +53,12 @@ const ManageAllOrders = () => {
 
     return (
         <div className='text-center container mb-5'>
-            <h1 className='mt-4'>Manage all orders: {allOrders?.length}</h1>
+            <h1 className='mt-4 fw-bold'>Total orders: {allOrders?.length}</h1>
             <div className='container row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-2 row-cols-1 mt-5'>
                 {
                     allOrders.map(order =>
                         <div key={order._id} className="col">
-                            <div className="card bg-secondary text-white">
+                            <div className="card bg-back text-white">
 
                                 <div className="card-body">
                                     <h2 className="card-title mb-2">{order?.productName}</h2>

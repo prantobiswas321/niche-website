@@ -28,9 +28,9 @@ const MakeAdmin = () => {
         e.preventDefault();
     }
     return (
-        <div>
-            <h2 className="mt-5">Make admin</h2>
-            <form onSubmit={handleAdminSubmit} className="mt-5 container">
+        <div className="mb-5 py-5">
+            <h2 className="mt-5 fw-bold">Make admin</h2>
+            <form onSubmit={handleAdminSubmit} className="mt-5 container mb-5 p">
                 <div className="input-group mb-3 mx-auto w-50">
                     <input className="form-control"
                         placeholder="User Email"

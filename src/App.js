@@ -12,6 +12,7 @@ import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import Dashboard from './pages/Dashboard/Dashboard';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
+import Footer from './pages/Shared/Footer/Footer';
 // import Navigation from './pages/Shared/Navigation/Navigation';
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
               <Register></Register>
             </Route>
           </Switch>
+          <Footer></Footer>
         </Router>
       </AuthProvider>
     </div>
