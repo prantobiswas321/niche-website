@@ -6,7 +6,7 @@ const ManageProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://limitless-bayou-43093.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [user.email])
@@ -14,7 +14,7 @@ const ManageProducts = () => {
     const deleteProduct = (id) => {
         const result = window.confirm('Are you sure to delete this product?');
         if (result) {
-            fetch(`http://localhost:5000/deleteProduct/${id}`, {
+            fetch(`https://limitless-bayou-43093.herokuapp.com/deleteProduct/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json'

@@ -11,7 +11,7 @@ const PlaceOrder = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/order/${id}`)
+        fetch(`https://limitless-bayou-43093.herokuapp.com/order/${id}`)
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [id])
@@ -37,7 +37,7 @@ const PlaceOrder = () => {
             ...placeOrder
         };
         // send to server
-        fetch('http://localhost:5000/userOrder', {
+        fetch('https://limitless-bayou-43093.herokuapp.com/userOrder', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

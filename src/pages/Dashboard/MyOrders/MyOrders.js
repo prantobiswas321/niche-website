@@ -6,7 +6,7 @@ const MyOrders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/${user.email}`)
+        fetch(`https://limitless-bayou-43093.herokuapp.com/myOrders/${user.email}`)
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [user.email])
@@ -14,7 +14,7 @@ const MyOrders = () => {
     const deleteOrder = (id) => {
         const result = window.confirm('Are you sure to delete this order?');
         if (result) {
-            fetch(`http://localhost:5000/deleteOrder/${id}`, {
+            fetch(`https://limitless-bayou-43093.herokuapp.com/deleteOrder/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json'

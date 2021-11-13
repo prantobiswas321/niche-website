@@ -16,7 +16,7 @@ const Review = () => {
             rating: ratingRef.current.value,
             comment: reviewRef.current.value
         };
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://limitless-bayou-43093.herokuapp.com/addReview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

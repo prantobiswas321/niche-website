@@ -6,7 +6,7 @@ const ManageAllOrders = () => {
     const [updateSuccess, setUpdateSuccess] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/userOrder')
+        fetch('https://limitless-bayou-43093.herokuapp.com/userOrder')
             .then(res => res.json())
             .then(data => setAllOrders(data))
     }, [updateSuccess])
@@ -14,7 +14,7 @@ const ManageAllOrders = () => {
     const deleteOrder = id => {
         const result = window.confirm('Are You Sure You Want To Delete?');
         if (result) {
-            fetch(`http://localhost:5000/deleteOrder/${id}`, {
+            fetch(`https://limitless-bayou-43093.herokuapp.com/deleteOrder/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json'
@@ -34,7 +34,7 @@ const ManageAllOrders = () => {
 
         const orderId = { _id: id };
 
-        fetch('http://localhost:5000/updateOrderStatus', {
+        fetch('https://limitless-bayou-43093.herokuapp.com/updateOrderStatus', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
