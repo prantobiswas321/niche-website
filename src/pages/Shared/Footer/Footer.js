@@ -30,7 +30,7 @@ const Footer = () => {
                             info@example.com<br />
                             888-000-999</p>
                         {/* <input type="email" placeholder='Email' name="" id="" /> */}
-                        <form className="row g-3">
+                        <form className="row">
                             <div className="col-auto">
                                 <label htmlFor="staticEmail2" className="visually-hidden">Email</label>
                                 <input type="text" readOnly id="staticEmail2" value="email@example.com" />

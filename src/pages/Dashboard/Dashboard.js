@@ -24,7 +24,7 @@ const Dashboard = () => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-color">
                 <div className="container">
-                    <h2 className="fw-bold header-text-color"><span className='text-warning'>R</span>etro<span className='text-success'>C</span>ycle</h2>
+                    <h2 className="fw-bold header-text-color"><span className='text-warning'>R</span>etro<span className='text-danger'>C</span>ycle</h2>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>

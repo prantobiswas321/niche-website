@@ -4,6 +4,7 @@
 body{
   background-color: #7078cc;
   color: rgb(48, 9, 117);
+  overflow-x: hidden;
 }
 
 .App-logo {
