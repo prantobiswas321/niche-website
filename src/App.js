@@ -13,6 +13,7 @@ import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import Dashboard from './pages/Dashboard/Dashboard';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import Footer from './pages/Shared/Footer/Footer';
+import Test from './pages/test/Test';
 // import Navigation from './pages/Shared/Navigation/Navigation';
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
       <AuthProvider>
         <Router>
           <Switch>
+          <Route exact path='/test'>
+              <Test></Test>
+            </Route>
             <Route exact path='/'>
               <Home></Home>
             </Route>

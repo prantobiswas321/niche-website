@@ -91,7 +91,7 @@ const Register = () => {
 
                         <button className="btn btn-danger" >Sign In With Google</button> */}
 
-                        <p className="pt-3 text-dark fw-bold">If you already have An Account? <Link to="/login">Login</Link></p>
+                        <p className="pt-3 text-dark fw-bold">If you already have An Account? <Link style={{ color: 'white' }} to="/login">Login</Link></p>
                     </div>
                     <div className="my-auto col-12 col-lg-6">
                         <img className='img-fluid' src={login} alt="" />

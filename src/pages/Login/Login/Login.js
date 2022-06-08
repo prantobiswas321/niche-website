@@ -77,7 +77,7 @@ const Login = () => {
 
                         <button onClick={handleGoogleSignIn} className="btn btn-danger" >Sign In With Google</button>
 
-                        <p className="pt-3 text-dark fw-bold">New to RetroCycle? <Link to="/register">Create an account</Link></p>
+                        <p className="pt-3 text-dark fw-bold">New to RetroCycle? <Link style={{ color: 'white' }} to="/register">Create an account</Link></p>
                     </div>
                     <div className="my-auto col-12 col-lg-6">
                         <img className='img-fluid' src={login} alt="" />
